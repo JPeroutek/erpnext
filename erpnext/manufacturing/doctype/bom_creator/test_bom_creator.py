@@ -1,7 +1,6 @@
 # Copyright (c) 2023, Frappe Technologies Pvt. Ltd. and Contributors
 # See license.txt
 
-import random
 
 import frappe
 from frappe.tests.utils import FrappeTestCase
@@ -13,6 +12,7 @@ from erpnext.manufacturing.doctype.bom_creator.bom_creator import (
 	edit_qty,
 )
 from erpnext.stock.doctype.item.test_item import make_item
+import secrets
 
 
 class TestBOMCreator(FrappeTestCase):
@@ -268,7 +268,7 @@ def create_items():
 	]
 
 	for item in raw_materials:
-		valuation_rate = random.choice([100, 200, 300, 500, 333, 222, 44, 20, 10])
+		valuation_rate = secrets.choice([100, 200, 300, 500, 333, 222, 44, 20, 10])
 		make_item(
 			item,
 			{
