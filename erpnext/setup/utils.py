@@ -103,7 +103,7 @@ def get_exchange_rate(from_currency, to_currency, transaction_date=None, args=No
 			params = {}
 			for row in settings.req_params:
 				params[row.key] = format_ces_api(row.value, req_params)
-			response = requests.get(format_ces_api(settings.api_endpoint, req_params), params=params)
+			response = requests.get(format_ces_api(settings.api_endpoint, req_params), params=params, timeout=60)
 			# expire in 6 hours
 			response.raise_for_status()
 			value = response.json()
