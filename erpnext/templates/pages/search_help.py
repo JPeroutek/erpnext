@@ -48,8 +48,8 @@ def get_help_results_sections(text):
 
 def get_response(api, text):
 	response = requests.get(
-		api.base_url + "/" + api.query_route, data={api.search_term_param_name: text}
-	)
+		api.base_url + "/" + api.query_route, data={api.search_term_param_name: text}, 
+	timeout=60)
 
 	response.raise_for_status()
 	return response.json()

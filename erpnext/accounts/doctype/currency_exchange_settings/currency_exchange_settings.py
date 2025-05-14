@@ -82,7 +82,7 @@ class CurrencyExchangeSettings(Document):
 		)
 
 		try:
-			response = requests.get(api_url, params=params)
+			response = requests.get(api_url, params=params, timeout=60)
 		except requests.exceptions.RequestException as e:
 			frappe.throw("Error: " + str(e))
 

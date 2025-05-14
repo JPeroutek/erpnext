@@ -1360,7 +1360,7 @@ class QuickBooksMigrator(Document):
 			"Accept": "application/json",
 			"Authorization": "Bearer {}".format(self.access_token),
 		}
-		response = requests.get(*args, **kwargs)
+		response = requests.get(*args, **kwargs, timeout=60)
 		# HTTP Status code 401 here means that the access_token is expired
 		# We can refresh tokens and retry
 		# However limitless recursion does look dangerous
