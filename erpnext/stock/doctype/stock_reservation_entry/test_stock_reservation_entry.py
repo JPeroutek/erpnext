@@ -1,7 +1,6 @@
 # Copyright (c) 2023, Frappe Technologies Pvt. Ltd. and Contributors
 # See license.txt
 
-from random import randint
 
 import frappe
 from frappe.tests.utils import FrappeTestCase, change_settings
@@ -19,6 +18,7 @@ from erpnext.stock.doctype.stock_reservation_entry.stock_reservation_entry impor
 	has_reserved_stock,
 )
 from erpnext.stock.utils import get_stock_balance
+import secrets
 
 
 class TestStockReservationEntry(FrappeTestCase):
@@ -257,9 +257,9 @@ class TestStockReservationEntry(FrappeTestCase):
 				{
 					"item_code": item_code,
 					"warehouse": self.warehouse,
-					"qty": randint(11, 100),
+					"qty": secrets.SystemRandom().randint(11, 100),
 					"uom": properties.stock_uom,
-					"rate": randint(10, 400),
+					"rate": secrets.SystemRandom().randint(10, 400),
 				}
 			)
 
@@ -331,7 +331,7 @@ class TestStockReservationEntry(FrappeTestCase):
 			dn1 = make_delivery_note(so.name)
 
 			for item in dn1.items:
-				item.qty = randint(1, 10)
+				item.qty = secrets.SystemRandom().randint(1, 10)
 
 			dn1.save()
 			dn1.submit()
@@ -348,7 +348,7 @@ class TestStockReservationEntry(FrappeTestCase):
 				dn2 = make_delivery_note(so.name)
 
 				for item in dn2.items:
-					item.qty += randint(1, 10)
+					item.qty += secrets.SystemRandom().randint(1, 10)
 
 				dn2.save()
 				dn2.submit()
@@ -384,9 +384,9 @@ class TestStockReservationEntry(FrappeTestCase):
 				{
 					"item_code": item_code,
 					"warehouse": self.warehouse,
-					"qty": randint(11, 100),
+					"qty": secrets.SystemRandom().randint(11, 100),
 					"uom": properties.stock_uom,
-					"rate": randint(10, 400),
+					"rate": secrets.SystemRandom().randint(10, 400),
 				}
 			)
 
@@ -504,9 +504,9 @@ class TestStockReservationEntry(FrappeTestCase):
 				{
 					"item_code": item_code,
 					"warehouse": self.warehouse,
-					"qty": randint(11, 100),
+					"qty": secrets.SystemRandom().randint(11, 100),
 					"uom": properties.stock_uom,
-					"rate": randint(10, 400),
+					"rate": secrets.SystemRandom().randint(10, 400),
 				}
 			)
 
@@ -590,9 +590,9 @@ class TestStockReservationEntry(FrappeTestCase):
 				{
 					"item_code": item_code,
 					"warehouse": self.warehouse,
-					"qty": randint(11, 100),
+					"qty": secrets.SystemRandom().randint(11, 100),
 					"uom": properties.stock_uom,
-					"rate": randint(10, 400),
+					"rate": secrets.SystemRandom().randint(10, 400),
 				}
 			)
 
@@ -665,9 +665,9 @@ class TestStockReservationEntry(FrappeTestCase):
 				{
 					"item_code": item_code,
 					"warehouse": self.warehouse,
-					"qty": randint(11, 100),
+					"qty": secrets.SystemRandom().randint(11, 100),
 					"uom": properties.stock_uom,
-					"rate": randint(10, 400),
+					"rate": secrets.SystemRandom().randint(10, 400),
 				}
 			)
 
